@@ -6,8 +6,8 @@
     <title>Manual Control | ISGA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <link rel="stylesheet" href="../style.css">
-    <script src="../components/tailwind-config.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="components/tailwind-config.js"></script>
 </head>
 <body class="bg-slate-100 min-h-screen">
     <custom-navbar></custom-navbar>
@@ -33,14 +33,14 @@
                     <i data-feather="clock" class="mr-2"></i>
                     Uptime:&nbsp; <span id="uptime">00:00:00</span>
                 </div>
-                <div class="status-tag bg-slate-100 text-slate-800">
+                <!-- <div class="status-tag bg-slate-100 text-slate-800">
                     <i data-feather="cpu" class="mr-2"></i>
                     CPU: <span id="cpu-load">0</span>%
                 </div>
                 <div class="status-tag bg-amber-100 text-amber-800">
                     <i data-feather="database" class="mr-2"></i>
                     Storage: <span id="storage-free">0</span>GB free
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -95,27 +95,7 @@
             </div>
         </div>
     </div>
-<script src="../components/navbar.js"></script>
-<script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            feather.replace();
-            
-            // Initialize control buttons
-            document.querySelectorAll('.control-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const controlBox = this.closest('.control-box');
-                    controlBox.classList.toggle('active');
-                    
-                    // Update button text based on state
-                    if (controlBox.classList.contains('active')) {
-                        this.textContent = this.textContent.replace('Start', 'Stop');
-                    } else {
-                        this.textContent = this.textContent.replace('Stop', 'Start');
-                    }
-                });
-            });
-        });
-    </script>
+<script src="components/navbar.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

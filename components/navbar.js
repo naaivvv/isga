@@ -103,9 +103,9 @@ class CustomNavbar extends HTMLElement {
         </button>
 <div class="nav-links" id="nav-links">
           <a href="/" class="nav-link">Dashboard</a>
-          <a href="src/scheduling.html" class="nav-link">Scheduling</a>
-          <a href="src/manual.html" class="nav-link">Manual</a>
-          <a href="src/calibration.html" class="nav-link">Calibration</a>
+          <a href="scheduling.html" class="nav-link">Scheduling</a>
+          <a href="manual.html" class="nav-link">Manual</a>
+          <a href="calibration.html" class="nav-link">Calibration</a>
 </div>
       </div>
     `;
