@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Stack Gas Analyzer (ISGA)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="components/tailwind-config.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+    <custom-navbar></custom-navbar>
+    <div class="container mx-auto px-4 py-6">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">Dashboard</h1>
+            <p class="text-slate-600">Industrial Stack Gas Analyzer - Real-time monitoring and control system</p>
+        </header>
+
+<!-- System Status -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold text-slate-800 mb-6 flex items-center">
+                <i data-feather="alert-circle" class="mr-2 text-nature-600"></i>
+                System Status
+            </h2>
+            <div class="flex flex-wrap gap-4">
+                <div class="status-tag bg-nature-100 text-nature-800">
+                    <i data-feather="check-circle" class="mr-2"></i>
+                    Connection: Active
+                </div>
+                <div class="status-tag bg-blue-100 text-blue-800">
+                    <i data-feather="clock" class="mr-2"></i>
+                    Uptime:&nbsp; <span id="uptime">00:00:00</span>
+                </div>
+                <!-- <div class="status-tag bg-slate-100 text-slate-800">
+                    <i data-feather="cpu" class="mr-2"></i>
+                    CPU: <span id="cpu-load">0</span>%
+                </div>
+                <div class="status-tag bg-amber-100 text-amber-800">
+                    <i data-feather="database" class="mr-2"></i>
+                    Storage: <span id="storage-free">0</span>GB free
+                </div> -->
+            </div>
+        </div>
+        
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- CO Card -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-slate-700">Carbon Monoxide (CO)</h3>
+                    <div class="px-3 py-1 rounded-full bg-nature-100 text-nature-800 text-sm font-medium" id="co-status">0 ppm</div>
+                </div>
+                <div class="h-40">
+                    <canvas id="coChart"></canvas>
+                </div>
+                <div class="mt-4 flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                    <span class="text-sm text-slate-600">Current: <span class="font-medium" id="co-value">0</span> ppm</span>
+                </div>
+            </div>
+
+            <!-- CO2 Card -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-slate-700">Carbon Dioxide (CO₂)</h3>
+                    <div class="px-3 py-1 rounded-full bg-nature-100 text-nature-800 text-sm font-medium" id="co2-status">0%</div>
+                </div>
+                <div class="h-40">
+                    <canvas id="co2Chart"></canvas>
+                </div>
+                <div class="mt-4 flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-orange-500 mr-2"></div>
+                    <span class="text-sm text-slate-600">Current: <span class="font-medium" id="co2-value">0</span>%</span>
+                </div>
+            </div>
+
+            <!-- O2 Card -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-slate-700">Oxygen (O₂)</h3>
+                    <div class="px-3 py-1 rounded-full bg-nature-100 text-nature-800 text-sm font-medium" id="o2-status">0%</div>
+                </div>
+                <div class="h-40">
+                    <canvas id="o2Chart"></canvas>
+                </div>
+                <div class="mt-4 flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                    <span class="text-sm text-slate-600">Current: <span class="font-medium" id="o2-value">0</span>%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="components/navbar.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>
